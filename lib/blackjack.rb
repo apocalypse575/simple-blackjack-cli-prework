@@ -29,14 +29,20 @@ def initial_round
 end
 
 def hit?(card_total)
-  prompt_user
+  initial_round
   # get_user_input
 
+  until card_total >= 22
+  prompt_user
   answer = get_user_input
   if answer == 'h'
-    puts 'Answer was h'
+    puts card_total += deal_card
   elsif answer == 's'
-    puts 'Answer was s'
+    return "You have #{card_total}!"
+  else
+    invalid_command
+  end
+  puts 'End of Game!'
 end
 end
 
